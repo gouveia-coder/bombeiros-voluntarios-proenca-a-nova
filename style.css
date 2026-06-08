@@ -396,7 +396,7 @@
     position: relative; overflow: hidden;
   }
   .recruit-card::before {
-    content: 'VOLUNTÃRIO'; position: absolute;
+    content: 'VOLUNTÁRIO'; position: absolute;
     bottom: -20px; right: -10px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 80px; color: rgba(192,40,28,0.04);

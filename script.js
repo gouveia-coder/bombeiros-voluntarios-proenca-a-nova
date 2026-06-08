@@ -369,14 +369,14 @@ function buildWindows() {
 
 function spawnFire(win) {
   if(win.fire) return;
-  win.fire = {intensity:100, maxIntensity:100, x:win.x+win.w/2, y:win.y+win.h/2};
+  win.fire = {intensity:50, maxIntensity:50, x:win.x+win.w/2, y:win.y+win.h/2};
 }
 
 function initFire() {
   stopFire();
   fireCanvas = document.getElementById('fireCanvas');
   fireCtx = fireCanvas.getContext('2d');
-  fireScore=0; fireTime=90; fireLevel=1; water=100; fires=[]; particles=[];
+  fireScore=0; fireTime=90; fireLevel=1; water=110; fires=[]; particles=[];
   document.getElementById('fire-score').textContent=0;
   document.getElementById('fire-time').textContent='90s';
   document.getElementById('fire-level').textContent=1;
@@ -464,7 +464,7 @@ function fireTimerTick() {
   document.getElementById('fire-time').textContent = fireTime+'s';
 
   // Recharge water
-  water = Math.min(100, water + 15);
+  water = Math.min(100, water + 25);
   document.getElementById('waterFill').style.width = water+'%';
 
   // Increase fire intensity
