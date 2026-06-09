@@ -39,6 +39,7 @@
 
 
 function navTo(section) {
+  closeMenu();
   if(document.getElementById('games-page').classList.contains('active')) {
     closeGames();
     setTimeout(() => {
@@ -620,8 +621,16 @@ showScreen('lobby');
 
 function toggleMenu() {
   const nav = document.querySelector('.nav-links');
+  const ham = document.querySelector('.hamburger');
   nav.classList.toggle('show');
-  document.querySelector('.hamburger').textContent = nav.classList.contains('show') ? '✕' : '☰';
+  ham.textContent = nav.classList.contains('show') ? '✕' : '☰';
+}
+
+function closeMenu() {
+  const nav = document.querySelector('.nav-links');
+  const ham = document.querySelector('.hamburger');
+  if (nav) { nav.classList.remove('show'); }
+  if (ham) { ham.textContent = '☰'; }
 }
 
 // Fecha o menu ao clicar num link
