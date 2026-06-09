@@ -1,5 +1,4 @@
-
-  {
+{
     "@context"; "https://schema.org",
     "@type"; "FireStation",
     "name"; "Bombeiros Voluntários de Proença-a-Nova",
@@ -618,3 +617,29 @@ function drawFire() {
 
 // ─── INIT ──────────────────────────────────────────────────────────────────
 showScreen('lobby');
+
+function toggleMenu() {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('show');
+  document.querySelector('.hamburger').textContent = nav.classList.contains('show') ? '✕' : '☰';
+}
+
+// Fecha o menu ao clicar num link
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('show');
+      document.querySelector('.hamburger').textContent = '☰';
+    });
+  });
+
+  // Fecha o menu ao clicar fora
+  document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    if (nav && nav.classList.contains('show') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove('show');
+      hamburger.textContent = '☰';
+    }
+  });
+});
