@@ -42,10 +42,17 @@ function navTo(section) {
   closeMenu();
   if(document.getElementById('games-page').classList.contains('active')) {
     closeGames();
-    setTimeout(() => {
-      const el = document.getElementById(section);
-      if(el) el.scrollIntoView({behavior:'smooth'});
-    }, 100);
+   requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
   } else {
     const el = document.getElementById(section);
     if(el) el.scrollIntoView({behavior:'smooth'});
