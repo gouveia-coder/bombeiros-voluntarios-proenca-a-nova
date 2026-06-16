@@ -624,7 +624,9 @@ function drawFire() {
 }
 
 // ─── INIT ──────────────────────────────────────────────────────────────────
-showScreen('lobby');
+if (document.getElementById('lobby')) {
+  showScreen('lobby');
+}
 
 function toggleMenu() {
   const nav = document.querySelector('.nav-links');
