@@ -800,7 +800,31 @@
     .pillars, .socios-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: clamp(40px, 12vw, 80px); margin-bottom: 32px; }
     .hero { padding-top: 90px; padding-bottom: 10vh; min-height: 100vh; }
-    .hero-year { font-size: 110px; opacity: 0.5; }
+    /* Esconder o 1948 no mobile — substitui-o pelo logo */
+    .hero-year { display: none; }
+
+    /* Logo centrado no espaço superior do hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -62%);
+      width: 72%;
+      height: 50vh;
+      background: url('logo-full.png') center / contain no-repeat;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Conteúdo por cima */
+    .hero-content,
+    .hero-grid,
+    .hero-accent,
+    .hero-bg {
+      z-index: 2;
+    }
     .hero-actions { flex-direction: column; gap: 16px; margin-top: 32px; }
     .hero-actions a { text-align: center; justify-content: center; }
     .hero-badge, .hero-established { display: none; }
