@@ -115,6 +115,14 @@
 
 
   @media (max-width: 768px) {
+    .hero-bg {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.92)
+        );
+}
 
 .hamburger { color: #ffffff !important; }
   }
@@ -155,15 +163,22 @@
   }
 
   .hero-bg {
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
+
     background:
-     linear-gradient(
-  to bottom,
-  rgba(255,255,255,0.35) 0%,
-  rgba(255,255,255,0.92) 100%
-)
-      url('https://lh3.googleusercontent.com/sitesv/AA5AbUA7z6Z5OEEMQwtMBu3GWJiKIAADV-h1DQukrono3rFcBWEQNIwHM1TuGgXlhaiXHsFkJN-fXGqS0VqpsqVzDlIDaHOrmAAJU_eVZU1CfZ_ZqPP1DHcbPxQKqq6XRbvTGm8RFAmFl6DNiJLmy_l1TlxN2JnRzrOClq9Jch_mk94SNBbT6FDPaLpQYK47iYW0z1u4tnWKKYGjHDS-FIdMnnR2kgcDPi4h6UC6yKQ=w1280') center/cover no-repeat;
-  }
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.45),
+            rgba(255,255,255,.92)
+        ),
+        url("logo-full.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30%;
+     z-index: 0;
+}
 
   .hero-grid {
     position: absolute; inset: 0; opacity: 0.03;
@@ -198,6 +213,7 @@
     text-shadow:
       0 0 20px rgba(192,40,28,0.08),
       0 0 40px rgba(192,40,28,0.05);
+       z-index: 2;
   }
 
   .hero-content { 
@@ -811,8 +827,8 @@
       left: 50%;
       transform: translate(-50%, -62%);
       width: 72%;
-      height: 50vh;
-      background: url('logo-full.png') center / contain no-repeat;
+      height: 50vh; 
+      background: url() center / contain no-repeat;
       opacity: 0.14;
       pointer-events: none;
       z-index: 1;
