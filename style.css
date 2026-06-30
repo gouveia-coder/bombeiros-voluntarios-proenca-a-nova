@@ -116,12 +116,11 @@
 
   @media (max-width: 768px) {
     .hero-bg {
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.35),
-            rgba(255,255,255,.92)
-        );
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.55),
+        rgba(255,255,255,.95)
+    );
 }
 
 .hamburger { color: #ffffff !important; }
@@ -166,18 +165,27 @@
     position: absolute;
     inset: 0;
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.45),
-            rgba(255,255,255,.92)
-        ),
-        url("logo-full.png");
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.45),
+        rgba(255,255,255,.92)
+    );
 
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30%;
      z-index: 0;
+}
+
+  .hero-logo {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("logo-full.png");
+    background-repeat: no-repeat;
+    background-position: 8% 5%;
+    background-size: 12%;
+
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 3;
 }
 
   .hero-grid {
@@ -819,27 +827,45 @@
     /* Esconder o 1948 no mobile — substitui-o pelo logo */
     .hero-year { display: none; }
 
-    /* Logo centrado no espaço superior do hero */
+    /* Logo centrado no espaço livre entre a navbar e o título */
     .hero::before {
       content: '';
       position: absolute;
-      top: 50%;
+      top: 90px;
+      bottom: 300px;
       left: 50%;
-      transform: translate(-50%, -62%);
-      width: 72%;
-      height: 50vh; 
-      background: url() center / contain no-repeat;
-      opacity: 0.14;
+      transform: translateX(-50%);
+      width: 85%;
+      background: url("logo-full.png") center / contain no-repeat;
+      opacity: 0.22;
       pointer-events: none;
       z-index: 1;
     }
 
-    /* Conteúdo por cima */
+    /* No mobile usamos o ::before do .hero para o logo; escondemos o .hero-logo do desktop */
+    .hero-logo {
+      display: none;
+    }
+
+    /* Esconder o fundo duplicado para não competir com o logo acima */
+    .hero-bg {
+      background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,.55),
+          rgba(255,255,255,.95)
+      ) !important;
+      z-index: 1;
+    }
+
+    /* Conteúdo sempre por cima do logo/branco */
     .hero-content,
     .hero-grid,
-    .hero-accent,
-    .hero-bg {
+    .hero-accent {
       z-index: 2;
+    }
+    .hero-title {
+      position: relative;
+      z-index: 3;
     }
     .hero-actions { flex-direction: column; gap: 16px; margin-top: 32px; }
     .hero-actions a { text-align: center; justify-content: center; }
